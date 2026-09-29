@@ -138,6 +138,24 @@
   }
   .avail p { font-size: 15px; color: var(--muted); }
 
+  /* Projects */
+  .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .proj {
+    display: flex; flex-direction: column; min-width: 0; text-decoration: none; color: inherit;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+    transition: transform .15s, border-color .15s;
+  }
+  .proj:hover { transform: translateY(-3px); border-color: var(--amber); }
+  .proj img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: top; border-bottom: 1px solid var(--line); }
+  .proj-body { padding: 20px 22px 22px; display: grid; gap: 10px; flex: 1; align-content: start; }
+  .proj-meta { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 12.5px; color: var(--amber-text); text-transform: uppercase; letter-spacing: .06em; }
+  .proj h3 { font-size: 30px; font-weight: 800; }
+  .proj p { font-size: 15.5px; color: var(--muted); }
+  .tools { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tools span { font-size: 13px; font-weight: 600; padding: 4px 10px; border-radius: 999px; background: var(--bg); border: 1px solid var(--line); }
+  .proj-link { margin-top: 4px; font-family: var(--font-display); font-weight: 700; font-size: 16px; letter-spacing: .05em; text-transform: uppercase; }
+  @media (max-width: 760px) { .projects { grid-template-columns: 1fr; } }
+
   /* Itinerary */
   .route { position: relative; list-style: none; margin: 0; padding: 0; display: grid; gap: 18px; }
   .route::before {
@@ -171,7 +189,9 @@
 
   /* Skills */
   .band { background: var(--surface); border-block: 1px solid var(--line); }
-  .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 16px; }
+  .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px 24px; }
+  @media (max-width: 760px) { .skills { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 420px) { .skills { grid-template-columns: 1fr; } }
   .skill { border-top: 4px solid var(--amber); padding-top: 16px; display: grid; gap: 8px; }
   .skill svg { width: 30px; height: 30px; color: var(--navy); }
   :root[data-theme="dark"] .skill svg { color: var(--amber); }
@@ -233,6 +253,7 @@
     <a class="brand" href="#top"><span class="sign">FC</span>Fanny Creusier</a>
     <ul>
       <li><a href="#profil">Profil</a></li>
+      <li><a href="#projets">Projets</a></li>
       <li><a href="#parcours">Parcours</a></li>
       <li><a href="#competences">Compétences</a></li>
       <li><a href="#formations">Formations</a></li>
@@ -246,7 +267,7 @@
     <div>
       <div class="kicker">Recherche une formation · Moselle</div>
       <h1>Fanny <span>Creusier</span></h1>
-      <p class="lead">Future Product Builder No-Code. Après plus de 12 ans sur le terrain, au contact des clients, je me forme pour concevoir des applications, des sites et des automatisations sans code.</p>
+      <p class="lead">Future Product Builder No-Code. Après plus de 12 ans sur le terrain, au contact des clients, j'ai déjà réalisé deux sites clients et je veux me former pour concevoir des applications, des sites et des automatisations sans code.</p>
       <div class="hero-actions">
         <a class="btn btn-amber" href="#contact">Me contacter</a>
         <a class="btn btn-ghost" href="#profil">Mon projet</a>
@@ -283,6 +304,34 @@
             <span>Temps plein</span><span>Formation qualifiante ou alternance</span><span>Disponible immédiatement</span>
           </div>
         </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="projets" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head"><span class="tag">Projets réalisés</span><h2>Déjà sur la route du no-code</h2></div>
+      <div class="projects">
+        <a class="proj" href="https://ny9ny57.github.io/Portfolio/shayamode.html">
+          <img src="images/shayamode-hero.jpg" alt="Page d'accueil de la boutique Shayamode, fond noir et typographie dorée" loading="lazy">
+          <div class="proj-body">
+            <div class="proj-meta"><span>Boutique en ligne</span><span>2026</span></div>
+            <h3>Shayamode</h3>
+            <p>Boutique de mode féminine : catalogue géré dans Airtable par la gérante, stock synchronisé avec Vinted, paiement Stripe (carte et PayPal), frais de livraison calculés au poids et espace client.</p>
+            <div class="tools"><span>Airtable</span><span>Stripe</span><span>Node.js</span><span>Google OAuth</span><span>Resend</span></div>
+            <span class="proj-link">Voir l'étude de cas ↗</span>
+          </div>
+        </a>
+        <a class="proj" href="https://ny9ny57.github.io/Portfolio/chambre-noire.html">
+          <img src="images/chambre-noire-hero.png" alt="Page d'accueil du site Chambre Noire, grand titre sur une photo de montagne" loading="lazy">
+          <div class="proj-body">
+            <div class="proj-meta"><span>Site de photographe</span><span>2026</span></div>
+            <h3>Chambre Noire</h3>
+            <p>Galerie photo avec téléchargement en haute résolution, espace de gestion autonome et galeries privées par code pour les clients. Hébergement gratuit au démarrage.</p>
+            <div class="tools"><span>Supabase</span><span>Netlify</span><span>GitHub</span><span>HTML · CSS · JS</span></div>
+            <span class="proj-link">Voir l'étude de cas ↗</span>
+          </div>
+        </a>
       </div>
     </div>
   </section>
